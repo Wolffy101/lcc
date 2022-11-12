@@ -1,5 +1,6 @@
 #include "PrintVisitor.h"
 #include <iostream>
+#include <cassert>
 namespace C100
 {
     void PrintVisitor::VisitorProgramNode(ProgramNode *node)
@@ -28,7 +29,7 @@ namespace C100
             std::cout << " / ";
             break;
         default:
-            // assert(0);
+            assert(0);
             break;
         }
     }

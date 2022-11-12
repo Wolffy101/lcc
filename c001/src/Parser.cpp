@@ -11,14 +11,16 @@ namespace C100
     }
     std::shared_ptr<AstNode> Parser::Parse()
     {
-        auto node = std::make_shared<ProgramNode>();
+        auto node = std::make_shared<ProgramNode>();    
         node->Lhs = ParseExpr();
         return node;
     }
+
     std::shared_ptr<AstNode> Parser::ParseExpr()
     {
         return ParseAddExpr();
     }
+
     std::shared_ptr<AstNode> Parser::ParseAddExpr()
     {
         auto left = ParseMultiExpr();

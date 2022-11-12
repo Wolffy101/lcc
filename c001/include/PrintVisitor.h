@@ -10,6 +10,8 @@ namespace C100
         PrintVisitor(/* args */) {}
         ~PrintVisitor() {}
         virtual void VisitorProgramNode(ProgramNode *programNode) override;
+
+    private:
         virtual void VisitorBinaryNode(BinaryNode *binaryNode) override;
         virtual void VisitorConstantNode(ConstantNode *constanNode) override;
     };
