@@ -3,7 +3,7 @@
 #include "Lexer.h"
 #include "PrintVisitor.h"
 #include "CodeGen.h"
-const auto *code = " 5 + 1 - 3*4/2";
+const auto *code = " 5 + (1 - 3)*4/2";
 void TestLex()
 {
   C100::Lexer lexer(code);
@@ -34,7 +34,7 @@ void TestCodeGen()
 int main(int argc, char const *argv[])
 {
   // TestLex();
-  // TestParse();
+  TestParse();
   // TestCodeGen();
   if (argc != 2)
   {

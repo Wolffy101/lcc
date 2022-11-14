@@ -23,23 +23,28 @@ namespace C100
     }
     else if (curChar == '+')
     {
-      kind = TokenKind::Add;
-      GetNextChar();
+      AssignToken(kind, TokenKind::Add); 
     }
     else if (curChar == '-')
     {
-      kind = TokenKind::Sub;
-      GetNextChar();
+      AssignToken(kind, TokenKind::Sub);
+    }
+    else if (curChar == '(')
+    {
+
+      AssignToken(kind, TokenKind::LParent);
+    }
+    else if (curChar == ')')
+    {
+      AssignToken(kind, TokenKind::RParent);
     }
     else if (curChar == '*')
     {
-      kind = TokenKind::Mul;
-      GetNextChar();
+      AssignToken(kind, TokenKind::Mul);
     }
     else if (curChar == '/')
     {
-      kind = TokenKind::Div;
-      GetNextChar();
+      AssignToken(kind, TokenKind::Div);
     }
     else if (isdigit(curChar))
     {
@@ -70,5 +75,11 @@ namespace C100
     {
       curChar = sourceCode[cursor++];
     }
+  }
+
+  void Lexer::AssignToken(TokenKind &left, TokenKind tokenKind)
+  {
+    left = tokenKind;
+    GetNextChar();
   }
 } // namespace C100

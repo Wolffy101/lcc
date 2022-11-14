@@ -10,6 +10,8 @@ namespace C100
     {
         Add,
         Sub,
+        LParent,
+        RParent,
         Mul,
         Div,
         Num,
@@ -36,6 +38,9 @@ namespace C100
         std::string_view sourceCode;
         char curChar{' '};
         int cursor{0};
+
+    private:
+        void AssignToken(TokenKind &left, TokenKind tokenKind);
     };
 
 } // namespace name

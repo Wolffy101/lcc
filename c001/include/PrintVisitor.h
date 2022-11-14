@@ -1,11 +1,13 @@
 #pragma once
 #include "AstNode.h"
+#include "string"
 namespace C100
 {
     class PrintVisitor : public AstVisitor
     {
-    private:
-        /* data */
+    public:
+        std::string Content;
+
     public:
         PrintVisitor(/* args */) {}
         ~PrintVisitor() {}

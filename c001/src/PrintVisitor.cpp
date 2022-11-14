@@ -6,7 +6,7 @@ namespace C100
     void PrintVisitor::VisitorProgramNode(ProgramNode *node)
     {
         node->Lhs->Accept(this);
-        std::cout << std::endl;
+        // std::cout << std::endl;
     }
 
     void PrintVisitor::VisitorBinaryNode(BinaryNode *node)
@@ -16,17 +16,21 @@ namespace C100
         switch (node->BinOp)
         {
         case BinaryOperator::Add:
-            std::cout << " + ";
+            Content.append("+ ");
+            // std::cout << " + ";
             break;
         case BinaryOperator::Sub:
-            std::cout << " - ";
+            Content.append("- ");
+            // std::cout << " - ";
             break;
 
         case BinaryOperator::Mul:
-            std::cout << " * ";
+            Content.append("* ");
+            // std::cout << " * ";
             break;
         case BinaryOperator::Div:
-            std::cout << " / ";
+            Content.append("/ ");
+            // std::cout << " / ";
             break;
         default:
             assert(0);
@@ -35,6 +39,8 @@ namespace C100
     }
     void PrintVisitor::VisitorConstantNode(ConstantNode *node)
     {
-        std::cout << " " << node->Value << " ";
+        Content.append(std::to_string(node->Value));
+        Content.push_back(' ');
+        // std::cout << " " << node->Value << " ";
     }
 } // namespace C100

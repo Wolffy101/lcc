@@ -45,3 +45,4 @@ _deps
 .cache
 build
 [bB]in
+vcpkg_installed

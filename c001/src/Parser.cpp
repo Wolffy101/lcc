@@ -11,7 +11,7 @@ namespace C100
     }
     std::shared_ptr<AstNode> Parser::Parse()
     {
-        auto node = std::make_shared<ProgramNode>();    
+        auto node = std::make_shared<ProgramNode>();
         node->Lhs = ParseExpr();
         return node;
     }
@@ -61,9 +61,19 @@ namespace C100
     }
     std::shared_ptr<AstNode> Parser::ParsePrimaryExpr()
     {
-        auto node = std::make_shared<ConstantNode>();
-        node->Value = lexer.CurrentToken->Value;
-        lexer.GetNextToken();
-        return node;
+        if (lexer.CurrentToken->Kind == TokenKind::LParent)
+        {
+            lexer.GetNextToken();
+            auto node = ParseExpr();
+            lexer.GetNextToken();
+            return node;
+        }
+        else
+        {
+            auto node = std::make_shared<ConstantNode>();
+            node->Value = lexer.CurrentToken->Value;
+            lexer.GetNextToken();
+            return node;
+        }
     }
 }
